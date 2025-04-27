@@ -5,12 +5,12 @@ const errorMsg = 'FS operation failed'
 
 const list = async () => {
   // Write your code here
+  const isFileFolderExist = await access(path).then(() => true).catch(() => false)
+  if (!isFileFolderExist) {
+    throw new Error(errorMsg)
+  }
+  
   try {
-    const isFileFolderExist = await access(path).then(() => true).catch(() => false)
-    if (!isFileFolderExist) {
-      throw new Error(errorMsg)
-    }
-    
     const files = await readdir(path);
     console.log(files);
   } catch (err) {
