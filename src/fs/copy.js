@@ -1,7 +1,8 @@
+import {join} from 'path'
 import {access, cp} from 'fs/promises';
 
-const folderPath = './files'
-const copyFolder = './files_copy'
+const folderPath = join(import.meta.dirname, 'files')
+const copyFolder = join(import.meta.dirname, 'files_copy')
 const errorMsg = 'FS operation failed'
 
 const copy = async () => {
