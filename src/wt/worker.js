@@ -10,7 +10,7 @@ const sendResult = () => {
       try {
         parentPort.postMessage({status: 'resolved', data: nthFibonacci(number)})
       } catch {
-        parentPort.postMessage({status: 'error', error: null})
+        parentPort.postMessage({status: 'error', data: null})
       }
     })
   }
